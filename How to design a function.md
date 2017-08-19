@@ -22,8 +22,8 @@ Nos permitirá tomar un problema grande y difícil, dividirlo, y trabajar en él
 ### Firma
 La firma de una función, enlista los parámetros que recibe, y la salida que produce. Por ejemplo: 
 
-```
-Number -> Number
+```Python
+## Number -> Number
 ```
 
 es la firma de una función que recibe un número, y regresa un número.
@@ -31,8 +31,8 @@ es la firma de una función que recibe un número, y regresa un número.
 ### Propósito
 Describe, brevemente -idealmente, una línea-, qué es lo que regresa la función, en términos de lo que recibe. Muchas veces es difícil hacerlo breve, pero al hacerlo, nos aseguramos de que estamos entendiendo qué es lo que hace la función. Por ejemplo:
 
-```
-Regresa el doble del número recibido n
+```Python
+## Regresa el doble del número recibido n
 ```
 
 ### Talón
@@ -41,10 +41,9 @@ Es un fragmento de código que regularmente es eliminado cuando se termina de di
 - tiene el número correcto de parámetros,
 - produce un resultado 'prueba' del tipo correcto
 
-```
-function double (n){
+```Python
+def double (n):
     return 0
-}
 ```
 
 # Ejemplos o pruebas
@@ -54,10 +53,10 @@ Cuando hemos terminado de diseñar la función, los ejemplos pasan a ser pruebas
 
 Un **ejemplo de ejemplos**: 
 
-```
-double(0)   (* 0 *)
-double(3)   (* 6 *)
-double(4.5) (* 9 *)
+```Python
+double(0)       # 0
+double(3)       # 6
+double(4.5)     # 9
 ```
 
 Puedes implementar una comprobación automática, para evitar ingresar cada valor, y comparar cada resultado. Para hacerlo, consulta [esta lista]() y busca el lenguaje en el que acostumbras programar. Las instrucciones de uso están dentro de los códigos para cada lenguaje. Si tu lenguaje favorito no está en esa lista, puedes intentar crearlo tú y compartirlo después, o contactarme para que intente crearlo.
@@ -71,17 +70,16 @@ Es una medida usada para describir la porción del código fuente de un programa
 ----------
 Hasta ahora, deberías tener un código como el siguiente:
 
-```
-(* Number -> Number *)
-(* Regresa el doble del número recibido n *)
+```Python
+## Number -> Number
+## Regresa el doble del número recibido n
 
-double(0)   (* 0 *)
-double(3)   (* 6 *)
-double(4.5) (* 9 *)
+double(0)       # 0
+double(3)       # 6
+double(4.5)     # 9
 
-function double (n){
+def double (n):
     return 0
-}
 ```
 
 Es recomendable que, teniendo la firma, propósito, talón y ejemplos, se ejecute el programa. Así es posible asegurarse de que no hemos cometido ningún error de tipo de datos, número de argumentos, nombre de función, etc. 
