@@ -11,7 +11,7 @@ Los ciclos son sentencias que nos permiten repetir un fragmento de código varia
 La manera en la que implementamos los ciclos varía dependiendo del paradigma (específicamente hablo de la programación funcional), pero lo más usual, es utilizar funciones iterativas: `while` y `for`
 
 ```python
-while (mareado == False):
+while (not mareado):
     ## Échate una pirueta
 ```
 
