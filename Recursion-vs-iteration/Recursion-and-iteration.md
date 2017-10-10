@@ -42,9 +42,9 @@ Sin embargo, sirve.
 
 Básicamente, consiste en saber qué hacer con:
 
-- **Casos base**: Son casos especials con lo que tiene que lidiar nuestra función. Casos 'límite'. Los casos más pequeños. Los más sencillos. Los 'especiales'.
+- **Casos base**: Son casos especiales con lo que tiene que lidiar nuestra función. Casos 'límite'. Los casos más pequeños. Los más sencillos.
 
-- **Resto de casos**
+- **Casos cualquiera**
 
 En código, se ve más o menos así:
 
@@ -71,7 +71,7 @@ Veamos un ejemplo:
     – ¿Y cómo bailo la pelusa una vez?
     – Fácil: "Pelusa por aquí, pelusa por allá..."
 
-En el anterior ejemplo, podemos identificar rápidamente **el caso base**, y **el resto de casos**.
+En el anterior ejemplo, podemos identificar rápidamente **el caso base**, y **los casos cualquiera**.
 
 - **Caso base**
     - ¿cuándo alcanzamos el caso base?
@@ -91,17 +91,17 @@ Parece que ya tenemos algo bueno con lo que trabajar. Intenemos programarlo:
 def bailarPelusa(k):
     ## Caso base en donde k = 1
     if k == 1:
-        return "Pelusa por aquí, pelusa por allá. "
+        return "Pelusa por aquí, pelusa por allá."
     ## Caso cualquiera
     else:
-         return bailarPelusa(1) + bailarPelusa(k-1)
+         return bailarPelusa(1) + " " + bailarPelusa(k-1)
 ```
 
 Ahora, podemos llamar a la función
 
 ```python
 bailarPelusa(3)
-## 'Pelusa por aquí, pelusa por allá. Pelusa por aquí, pelusa por allá. Pelusa por aquí, pelusa por allá. '
+## 'Pelusa por aquí, pelusa por allá. Pelusa por aquí, pelusa por allá. Pelusa por aquí, pelusa por allá.'
 ```
 Bien, sé que bailar la pelusa puede convertirte en el alma de la fiesta, pero es momento de pasar a ejemplos que no impliquen levantarnos del asiento.
 
@@ -164,9 +164,11 @@ def max2Nums(a,b):
     return a if a>b else b
 ```
 
-#### Algoritmo lineal
+Ahora, implementemos los dos acercamientos: lineal y binario.
 
-Recordemos que los casos base serán los mismos para ambos acercamientos. Sólo tenemos que cambiar el caso recursivo.
+Recordemos que los casos base serán los mismos para ambos. Sólo tenemos que cambiar el caso recursivo.
+
+#### Algoritmo lineal
 
 ```python
 def maxInListLinear(myList):
@@ -223,4 +225,6 @@ def maxInListBinary(myList):
 
 Y listo, ya tenemos dos posibles implementaciones.
 
-Podemos ahora, verificar que regresan el valor correcto cada vez que son invocadas.
+Podemos ahora, verificar que regresan el valor correcto cada vez que son invocadas. Yo ya lo hice y ambas funcionan de la manera esperada.
+
+Aunque hay que ser cuidadosos, pues existen algunos lenguajes con oooootro concepto llamado **Límite de recursión**, que es el límite de veces que una función puede llamarse a sí misma.
