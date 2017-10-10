@@ -15,7 +15,7 @@ while (mareado == False):
     ## Échate una pirueta
 ```
 
-El fragmento `while` anterior, básicamente lo podemos leer como "mientras que no estés mareado, **échate una pirueta**", o "échate piruetas hasta que te marees".
+El fragmento `while` anterior, básicamente lo podemos leer como "mientras que no estés mareado, **échate una pirueta**", o mejor aún, "échate piruetas hasta que te marees".
 
 ```python
 for (i in range(10)):
@@ -81,3 +81,55 @@ bailarPelusa(3)
 
 Sé que bailar la pelusa puede convertirte en el alma de la fiesta, pero es momento de pasar a ejemplos que no impliquen levantarnos del asiento.
 
+Definamos, por ejemplo, una función que encuentre el valor máximo en un arreglo o lista. Muchos lenguajes ya cuentan con métodos para hacerlo, pero que nos de igual, ¿no?
+
+Bien, ¿cuáles son nuestros casos base?
+
+- **Lista vacía** ¡Una lista vacía no tiene máximos!
+
+- **Lista con un elemento** El máximo entre 'a' y... bueno... nada, es 'a'.
+
+¿y qué deberíamos hacer con todo lo demás?
+
+- Comparar el primer valor de la lista, y el máximo de **tooooodo** el resto de la lista, para regresar el mayor de los dos.
+
+Y es más, ni siquiera utilizaré la función integrada para obtener el mayor de dos números. También la definiremos.
+
+```python
+def max2Nums(a,b):
+    return a if a>b else b
+```
+
+Bueno, eso fue fácil. Eso es el operador ternario.
+
+Ahora, la función que nos interesa:
+
+```python
+def maxInList(myList):
+    ## Agreguemos el primer caso base: Lista vacía (o de longitud 'cero')
+    if len(myList) == 0:
+        ## Alertemos sobre un error: una lista vacía no puede tener un valor máximo
+        raise Exception('¡Esto es una lista vacía! ¿qué rayos pretendes?')
+    ## Agreguemos el segundo caso base: Un elemento en lista
+    elif len(myList) == 1:
+        ## Regresemos el primer valor en la lista (el único)
+        return myList[0]
+    else:
+        ## Comparemos el primer valor de la lista, y el valor máximo de 
+            ## "el resto" de la lista
+        return max2Nums(myList[0], maxInList(myList[1:]))
+```
+
+Y listo, tenemos nuestra propia implementación llamada `maxInList`.
+
+Si la última notación te causa conflicto, no hay problema, lo que hace es *cortar* la lista, a partir del primer índice, y hasta el segundo índice menos uno. Funciona algo así:
+
+```python
+listita = ['manzana', 'fresa', 'mango', 'durazno', 'aguacate']
+listita[1:]
+## ['fresa', 'mango', 'durazno', 'aguacate']
+    ## Obtiene listita desde el ínice 1, hasta el último
+listita[0:2]
+## ['manzana', 'fresa']
+    ## Obtiene listita desde el índice 0, hasta el 2 - 1
+```
