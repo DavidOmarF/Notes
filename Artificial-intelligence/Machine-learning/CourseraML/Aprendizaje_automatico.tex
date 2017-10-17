@@ -23,6 +23,11 @@
   
   \usepackage{blindtext} % Package to generate dummy text throughout this template 
   
+  \usepackage{graphicx} %Include graphics
+  \graphicspath{{./img/}}
+
+  \usepackage{amsmath} % Use math notation
+
   \usepackage[sc]{mathpazo} % Use the Palatino font
   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
   \linespread{1.05} % Line spacing - Palatino needs more space between lines
@@ -55,9 +60,10 @@
   \pagestyle{fancy} % All pages have headers and footers
   \fancyhead{} % Blank out the default header
   \fancyfoot{} % Blank out the default footer
-  \fancyhead[C]{Introducción al Aprendizaje Automático $\bullet$ David Omar Flores Chávez} % Custom header text
+  \fancyhead[LE]{Introducción al Aprendizaje Automático} % Custom header text
+  \fancyhead[RO]{David Omar Flores Chávez} % Custom header text
   \fancyfoot[RO,LE]{\thepage} % Custom footer text
-  
+
   \usepackage{titling} % Customizing the title section
   
   \usepackage{hyperref} % For hyperlinks in the PDF
@@ -91,7 +97,13 @@
   
   \renewcommand{\maketitlehookd}{%
   \begin{abstract}
-      \noindent Hola esto es un abstract!
+      \noindent Este artículo pretende resaltar la importancia
+      de la intuición de los algoritmos más utlizados en el aprendizaje automático.
+      También se proporcionará una pequeña guía de visualización de datos para
+      realizar las exploraciones iniciales en cada problema.
+      El objetivo, es que más allá de saber cómo implementarlos, el lector sepa elegir
+      qué algoritmo es el apropiado para un conjunto de datos en particular, ahorrando
+      tiempo y recursos técnicos y humanos.
   \end{abstract}
   }
   
@@ -107,8 +119,8 @@
   
   \section{Introducción}
   
-    \lettrine[nindent=0em,lines=3]{E} 
-    l Aprendizaje Automático, 
+    % \lettrine[nindent=0em,lines=3]{E} 
+    El Aprendizaje Automático, 
     Aprendizaje de Máquinas o \textit{Machine Learning} es una rama
     de la inteligencia artificial que pretende otorgar a las computadoras
     la \textbf{capacidad de aprender}.
@@ -127,16 +139,14 @@
   \section{Tipos de Algoritmos}
   
       Los algoritmos de aprendizaje pueden clasificarse en tres
-      categorías, principales:
+      categorías principales, tomando como criterio las 
+      características de los datos con que se entrenan:
 
       \begin{itemize}
         \item Aprendizaje supervisado
         \item Aprendizaje no-supervisado
         \item Aprendizaje por refuerzo
       \end{itemize}
-      
-      Cada una se caracteriza por las características de los datos
-      con que son entrenadas.
 
       \subsection{Aprendizaje Supervisado}
         Permite inferir información a partir de un conjunto de
@@ -183,7 +193,58 @@
                 todas, utilizando como criterio de separación la cara
                 de las personas que aparecen en las fotos.
         \end{itemize}
-  %----------------------------------------------------------------------------------------
+
+    \section{Regresión}
+        
+        Los problemas de regresión son útiles en la predicción de 
+        \textbf{valores reales}.
+
+        Comencemos con un ejemplo motivador para la predicción del costo 
+        de viviendas.
+        
+        Usaremos un conjunto de datos ficticio que contiene
+        \begin{enumerate}[label=(\alph*)]
+          \item el tamaño de una vivienda en pies cuadrados, y
+          \item el precio de la vivienda en miles de dólares
+        \end{enumerate}
+
+        Si intentamos visualizar la distribución de los datos, tendremos la
+        siguiente gráfica:
+
+        \includegraphics[width=\columnwidth, page = 1]{housePrices.pdf}
+
+        Ahora, imaginemos que tenemos una vivienda de 1250 $ft^2$ y
+        nos interesa tener una idea de cuál es el precio que podría
+        alcanzar en el mercado.
+
+        \includegraphics[width=\columnwidth, page = 2]{housePrices.pdf}
+
+        Para hacerlo, podemos intentar \textbf{ajustar un modelo} a la gráfica,
+        y usarlo para hacer nuestras predicciones.
+
+        Ajustando una línea recta, podemos estimar que una vivienda de
+        1250 $ft^2$, tiene un costo de \$ USD 250, 000.
+
+        \includegraphics[width=\columnwidth, page = 3]{housePrices.pdf}
+        
+        Este es un ejemplo de \textbf{aprendizaje supervisado}: cada
+        \textit{evento} de nuestro conjunto de datos cuenta con la 
+        \textit{salida esperada}: el precio de cada vivienda.
+
+        Más formalmente, en el aprendizaje supervisado, tenemos un conjunto
+        de datos llamado \textbf{conjunto de entrenamiento}.
+
+        El conjunto de entrenamiento contiene $m$ ejemplos $(x, y)$, donde
+        $x$ es una variable de entrada, y $y$ una variable de salida.
+
+        Cuando consideramos \textbf{más de una característica} para nuestras
+        variables de entrada, $x$ simplemente pasa a ser un valor vectorial 
+        de $n$ dimensiones, donde $n$ es el número de características de cada
+        entrada.
+
+
+
+%----------------------------------------------------------------------------------------
   %	REFERENCE LIST
   %----------------------------------------------------------------------------------------
   
