@@ -1,0 +1,200 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside,twocolumn]{article}
+  
+  \usepackage{blindtext} % Package to generate dummy text throughout this template 
+  
+  \usepackage[sc]{mathpazo} % Use the Palatino font
+  \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+  \linespread{1.05} % Line spacing - Palatino needs more space between lines
+  \usepackage{microtype} % Slightly tweak font spacing for aesthetics
+  
+  \usepackage[spanish]{babel}
+  \selectlanguage{spanish}
+  \usepackage[utf8]{inputenc} % Include utf-8 character renderization
+  
+  \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+  \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+  \usepackage{booktabs} % Horizontal rules in tables
+  
+  \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+  
+  \usepackage{enumitem} % Customized lists
+  \setlist[itemize]{noitemsep} % Make itemize lists more compact
+  
+  \usepackage{abstract} % Allows abstract customization
+  \renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+  \renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+  
+  \usepackage{titlesec} % Allows customization of titles
+  % \renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+  % \renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+  % \titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+  % \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+  
+  \usepackage{fancyhdr} % Headers and footers
+  \pagestyle{fancy} % All pages have headers and footers
+  \fancyhead{} % Blank out the default header
+  \fancyfoot{} % Blank out the default footer
+  \fancyhead[C]{Introducción al Aprendizaje Automático $\bullet$ David Omar Flores Chávez} % Custom header text
+  \fancyfoot[RO,LE]{\thepage} % Custom footer text
+  
+  \usepackage{titling} % Customizing the title section
+  
+  \usepackage{hyperref} % For hyperlinks in the PDF
+  
+  %----------------------------------------------------------------------------------------
+  %	TITLE SECTION
+  %----------------------------------------------------------------------------------------
+  
+  \setlength{\droptitle}{-4\baselineskip} % Move the title up
+  
+  \pretitle{\begin{center}\Huge} % Article title formatting
+  \posttitle{\end{center}} % Article title closing formatting
+  
+  \title{Introducción al Aprendizaje Automático
+    \large \\[2\baselineskip]
+    Intuición, Algoritmos y Mejores Prácticas
+    \\[2\baselineskip]
+  } % Article title
+  
+  \author{
+      \textsc{David Omar Flores Chávez} \\[1ex] % Your name
+      \normalsize Escuela Superior de Cómputo \\ % Your institution
+      \normalsize {davidomarfch@gmail.com}\\[2\baselineskip] % Your email address
+      % \and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+      % \textsc{Héctor Aguilar Hernández} \\[1ex] % Second author's name
+      % \normalsize Escuela Superior de Cómputo \\ % Second author's institution
+      % \normalsize {hectoraldairah@gmail.com} % Second author's email address
+  }
+  
+  \date{\today} % Leave empty to omit a date
+  
+  \renewcommand{\maketitlehookd}{%
+  \begin{abstract}
+      \noindent Hola esto es un abstract!
+  \end{abstract}
+  }
+  
+  %----------------------------------------------------------------------------------------
+  
+  \begin{document}
+  
+  % Print the title
+  \maketitle
+  %----------------------------------------------------------------------------------------
+  %	ARTICLE CONTENTS
+  %----------------------------------------------------------------------------------------
+  
+  \section{Introducción}
+  
+    \lettrine[nindent=0em,lines=3]{E} 
+    l Aprendizaje Automático, 
+    Aprendizaje de Máquinas o \textit{Machine Learning} es una rama
+    de la inteligencia artificial que pretende otorgar a las computadoras
+    la \textbf{capacidad de aprender}.
+
+    El término fue acuñado en 1959 por el informático Arthur M. Samuel, y lo
+    definió como \textit{«el campo de estudio que le otorga a las computadoras
+    la habilidad de aprender, sin ser programadas de manera explícita.»} \cite{Samuel:1959:SML:1661923.1661924}
+
+    Tom Mitchell, en el año de 1997, propone una definición más formal para el
+    término: \textit{«Una computadora aprende de la experiencia E, con respecto a
+    una tarea T, y una medida de rendimiento P, si su rendimiento en la tarea T,
+    siendo medido por P, mejora con la experiencia E»} \cite{Mitchell1997}
+
+  %------------------------------------------------
+  
+  \section{Tipos de Algoritmos}
+  
+      Los algoritmos de aprendizaje pueden clasificarse en tres
+      categorías, principales:
+
+      \begin{itemize}
+        \item Aprendizaje supervisado
+        \item Aprendizaje no-supervisado
+        \item Aprendizaje por refuerzo
+      \end{itemize}
+      
+      Cada una se caracteriza por las características de los datos
+      con que son entrenadas.
+
+      \subsection{Aprendizaje Supervisado}
+        Permite inferir información a partir de un conjunto de
+        datos etiquetados\footnote{Grupo de muestras cuyas características
+        han sido etiquetadas para crear datos más significativos.}.
+
+        Cada muestra consiste de
+
+        \begin{enumerate}[label=(\alph*)]
+          \item \textbf{una entrada}, y
+          \item \textbf{una salida esperada.}
+        \end{enumerate}
+        
+        Este tipo de aprendizaje analiza los datos de entrenamiento,
+        aprende de ellos, y produce una \textbf{función} que puede usarse
+        para \textit{mapear} nuevas muestras.
+
+        Ejemplos de posibles aplicaciones de estos algoritmos, pueden ser:
+
+        \begin{itemize}
+          \item Aprendiendo del tamaño, velocidad de crecimiento (entrada),
+                y el tipo (salida) de miles de tumores, predecir si un
+                tumor diferente será benigno o maligno.
+          \item Aprendiendo del tamaño, estilo arquitectónico, 
+                número de baños (entrada), y costo (salida)
+                de miles de casas, predecir un nuevo costo de una casa diferente.
+        \end{itemize}
+
+      \subsection{Aprendizaje No Supervisado}
+        Permite descubrir -tanto si existe, como si no-, alguna estructura
+        oculta dentro de un conjunto de datos.
+
+        Dado que la característica principal de este tipo de aprendizaje
+        es la utilización de datos no etiquetados, es imposible conocer
+        la validez de la estructura descubierta por el algoritmo.
+
+        Ejemplos de posibles aplicaciones de estos algoritmos, pueden ser:
+        
+        \begin{itemize}
+          \item Analizando una base de datos de miles de clientes,
+                poder generar distintos segmentos de mercado,
+                y describir las cualidades de cada uno.
+          \item Analizando una enorme cantidad de fotos, separarlas
+                todas, utilizando como criterio de separación la cara
+                de las personas que aparecen en las fotos.
+        \end{itemize}
+  %----------------------------------------------------------------------------------------
+  %	REFERENCE LIST
+  %----------------------------------------------------------------------------------------
+  
+  % \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+  % \end{thebibliography}
+  
+
+  \bibliographystyle{unsrt}
+  \bibliography{references}
+  %----------------------------------------------------------------------------------------
+  
+  \end{document}
+  
