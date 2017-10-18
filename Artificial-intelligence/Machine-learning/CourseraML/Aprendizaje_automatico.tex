@@ -27,6 +27,8 @@
   \graphicspath{{./img/}}
 
   \usepackage{amsmath} % Use math notation
+  \newcommand{\realset}{\mathbb{R}} % Include real set char
+  \usepackage{ upgreek }
 
   \usepackage[sc]{mathpazo} % Use the Palatino font
   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -148,7 +150,7 @@
         \item Aprendizaje por refuerzo
       \end{itemize}
 
-      \subsection{Aprendizaje Supervisado}
+      \subsection{Aprendizaje Supervisado} 
         Permite inferir información a partir de un conjunto de
         datos etiquetados\footnote{Grupo de muestras cuyas características
         han sido etiquetadas para crear datos más significativos.}.
@@ -231,28 +233,162 @@
         \textit{evento} de nuestro conjunto de datos cuenta con la 
         \textit{salida esperada}: el precio de cada vivienda.
 
-        Más formalmente, en el aprendizaje supervisado, tenemos un conjunto
-        de datos llamado \textbf{conjunto de entrenamiento}.
+        \subsection{Nomenclatura y notación}
+          Más formalmente, en el aprendizaje supervisado, tenemos un conjunto
+          de datos llamado \textbf{conjunto de entrenamiento}.
 
-        El conjunto de entrenamiento contiene $m$ ejemplos $(x, y)$, donde
-        $x$ es una variable de entrada, y $y$ una variable de salida.
+          El conjunto de entrenamiento contiene $m$ ejemplos $(\upchi, y)$, donde
+          $\upchi$ es una variable de entrada, e $y$ una variable de salida.
 
-        Cuando consideramos \textbf{más de una característica} para nuestras
-        variables de entrada, $x$ simplemente pasa a ser un valor vectorial 
-        de $n$ dimensiones, donde $n$ es el número de características de cada
-        entrada.
+          Ambos valores son vectores de dimensión $m$.
 
+          \[
+            \upchi
+            ,
+            y \in \realset^{m}
+          \]
 
+          Para referirnos a un elemento $i$ dentro del conjunto, utilizamos la notación
+          $\upchi^{(i)}$ e $y^{(i)}$ siempre que $1 \leq i \leq m$.
 
+          Es importante que al usar esta notación, se entienda que no se
+          trata de exponenciación.
+        
+          \[
+            \upchi^{(i)} \ne \upchi^i
+          \]
+
+          Cuando la variable de entrada tiene \textbf{más de una característica},
+          $\upchi$ es una matriz de $m \times n$ dimensiones,
+         
+          \[
+            \upchi \in \realset^{m \times n}
+          \]
+
+          donde $n$ es el número de características de cada entrada.
+
+          Nótese que si $n = 1 \implies \upchi \in \realset ^ {m \times 1}$, por lo que 
+          $\upchi$ es un vector de dimensión $m$.
+
+          Para referirnos a una característica $j$ específica, utilizamos la notación
+          $\upchi_{j}$ siempre que $1 \leq j \leq n$.
+
+          Apliquemos la notación mencionada para tratar de explorar el conjunto de datos
+          de la siguiente tabla.
+
+          \begin{table}[h]
+
+            \centering
+            \caption{Conjunto de entrenamiento.}
+            \label{tabla:m_datos}
+
+            \resizebox{\columnwidth}{!}{%
+              \begin{tabular}{@{}rrrrr@{}}
+
+                \toprule
+                
+                  \textbf{Ejemplo} &
+                  \textbf{Tamaño} &
+                  \textbf{N. Hab.} &
+                  \textbf{N. Baños} &
+                  \textbf{Costo} \\
+
+                \midrule
+
+                  $1$ & 1160 & 2 & 1 &  468  \\
+                  $2$ & 1620 & 4 & 1.75 &  385  \\
+                  $3$ & 990 & 3 & 1 &  210  \\
+                  $4$ & 2753 & 3 & 2.5 &  1135  \\
+                  $5$ & 1980 & 2 & 1.75 &  585  \\
+                  $6$ & 1000 & 3 & 1 &  204  \\
+
+                \bottomrule
+
+              \end{tabular}
+            }
+          \end{table}
+          
+          Sabemos que nuestro conjunto de datos cuenta con una variable de entrada $\upchi$,
+          y una variable de salida $y$.
+
+          La variable de entrada $\upchi$ tiene las características de: 
+          \begin{enumerate}
+            \item área,
+            \item número de habitaciones,
+            \item número de baños
+          \end{enumerate}
+
+          El tamaño del conjunto es $m = 6$, y el número de características
+          de $\upchi$ es $n = 3$, por lo tanto,
+
+          \[
+            \upchi \in \realset^{6 \times 3}
+            ,
+            y \in \realset^{6}
+          \]
+
+          Y los valores de cada variable son:
+
+          \[
+            \upchi
+            =
+            \begin{bmatrix}
+              1160 & 2 & 1 \\
+              1620 & 4 & 1.75 \\
+              990 & 3 & 1 \\
+              2753 & 3 & 2.5 \\
+              1980 & 2 & 1.75 \\
+              1000 & 3 & 1 \\ 
+            \end{bmatrix}
+            ,
+            y
+            =
+            \begin{bmatrix}
+              468  \\
+              385  \\
+              210  \\
+              1135  \\
+              585  \\
+              204
+            \end{bmatrix}
+          \]
+
+          Si queremos referirnos al tercer ejemplo, 
+
+          \[
+            (\upchi^{(3)}, y^{(3)})
+            =
+            (\begin{bmatrix}
+              990 & 3 & 1
+            \end{bmatrix},
+            210)
+          \]
+
+          Si queremos referirnos a la primer característica,
+
+          \[
+            \upchi_1
+            =
+            \begin{bmatrix}
+              1160 \\
+              1620 \\
+              990 \\
+              2753 \\
+              1980 \\
+              1000
+            \end{bmatrix}
+          \]
+
+          Y si queremos saber el número de baños del 5to ejemplo, 
+
+          \[
+            \upchi^{(5)}_3
+            =
+            1.75
+          \]
 %----------------------------------------------------------------------------------------
   %	REFERENCE LIST
   %----------------------------------------------------------------------------------------
-  
-  % \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
-
-  % \end{thebibliography}
-  
-
   \bibliographystyle{unsrt}
   \bibliography{references}
   %----------------------------------------------------------------------------------------

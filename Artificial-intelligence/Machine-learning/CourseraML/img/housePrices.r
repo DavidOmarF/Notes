@@ -16,7 +16,7 @@ base = ggplot(df, aes(x=sqft, y=price)) +
 
 # Create and plot fig1 (scatter plot)
 fig1 = base +
-    geom_point(colour = "#4FC1BB", alpha = 0.8, size = 2)
+    geom_point(colour = "#4FC1BB", alpha = 0.6, size = 2)
 
 plot(fig1)
 
@@ -31,6 +31,6 @@ fig3 = base +
     geom_point(colour = "#4FC1BB", alpha = 0.3, size = 2) +
     geom_smooth(method = "lm", se = FALSE, colour = "#4FC1BB") +
     geom_vline(xintercept=1250, colour = "#FF4D48", linetype="dashed") +
-    geom_point(x = 1250, y = 250, alpha = 0.8, size = 2, colour = "#FF4D48")
+    geom_point(x = 1250, y = 250, alpha = 0.8, size = 2, colour = "#FF4D48", shape=4)
 
 plot(fig3)
