@@ -24,7 +24,7 @@ Básicamente es:
 
 Dependiendo del lenguaje que utilices, vas a utilizar un *framework* de pruebas unitarias.
 
-Puedes consultar una [lista de frameworks por lenguaje](https://www.wikiwand.com/en/List_of_unit_testing_frameworks)
+Puedes consultar una [lista de frameworks por lenguaje](https://www.wikiwand.com/en/List_of_unit_testing_frameworks). O también podrías simplemente buscar `Testing framework for <lang>`.
 
 Para crear mejores pruebas, es conveniente preguntarse:
 
