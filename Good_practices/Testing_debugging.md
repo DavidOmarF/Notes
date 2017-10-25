@@ -1,25 +1,38 @@
 # Bugs
 
-Bugs, o *características inesperadas*, son problemas que ocasionan que nuestros programas se ejecuten de maneras diferentes a las que esperábamos.
-
-Muy rara vez las cosas funcionan la primera vez que se ejecutan.
+*Bugs*, o -de manera optimista- características extra, son problemas en nuestro código fuente que ocasionan que un programa se ejecute de maneras diferente a la que esperábamos.
 
 Eric Grimson hace una analogía entre programar y preparar sopa:
 
-    Estás preparando sopa en la cocina, pero los bichos caen y caen desde el techo. ¿Qué es lo que tienes que hacer para tener una buena sopa, libre de bichos?
-    - Puedes revisar si hay bichos en la sopa,
-    - mantener la tapa cerrada,
-    - o limpiar la cocina.
+> Estás preparando sopa en la cocina, pero los bichos caen y caen   desde el techo. ¿Qué es lo que tienes que hacer para tener una buena sopa, libre de bichos? Puedes **revisar si la sopa tiene bichos**, **cerrar la tapa**, o **limpiar la cocina**.
 
-## Revisar la sopa, o *testing/validación*
+Claro que se trata de diseño de *software* y no de sopas.
 
-**Comparar** los pares (entrada, salida).
+sPero por revisar si hay bichos en la sopa, hablamos de **validación** -o *testing*-.
 
-¿Cómo puedo **romper** el programa?
+Por cerrar la tapa, hablamos de **programación defensiva**.
+
+Y por limpiar la cocina, hablamos de **depuración**.
+
+## Validación
+
+También -y más comúnmente- llamada *testing* es la acción de **comparar** los pares (entrada, salida).
+
+Básicamente es:
+
+> Con una entrada *x*, en la función *f(x)* espero recibir una salida *y*.
+
+Dependiendo del lenguaje que utilices, vas a utilizar un *framework* de pruebas unitarias.
+
+Puedes consultar una [lista de frameworks por lenguaje](https://www.wikiwand.com/en/List_of_unit_testing_frameworks)
+
+Para crear mejores pruebas, es conveniente preguntarse:
+
+> ¿Cómo puedo **romper** el programa?
 
 ## Cerrar la tapa, o *programación defensiva*
 
-### Escribir especificaciones para las funciones.
+### Escribir especificaciones para las funciones
 
 Una especificación acompaña a la definición de función. Y siempre va en la línea anterior o siguiente a ésta.
 
@@ -42,7 +55,7 @@ def union(set1, set2):
 ```
 
 ```javascript
-/* 
+/*
     int dividendo, int divisor => int cociente
 
     dividendo puede ser cualquier número entero.
@@ -50,7 +63,7 @@ def union(set1, set2):
 
     Salida: Parte entera de la división
     (dividendo / divisor)
-*/ 
+*/
 function division_enteros(dividendo, divisor){
 
 }
