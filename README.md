@@ -1,2 +1,8 @@
 # Notes
-Notes on several topics of CS
+Notes on several topics of CS:
+
+- Algorithms
+
+- Artificial Intelligence
+  - Machine Learning
+  
