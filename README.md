@@ -6,3 +6,6 @@ Notes on several topics of CS:
 - Artificial Intelligence
   - Machine Learning
   
+- Quantum Computing
+  - Quantum Correction Codes
+  
